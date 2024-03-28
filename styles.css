@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Light gray background */
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+header {
+  background: linear-gradient(90deg, #ff6f61, #ffcc5c); /* Gradient from orange to yellow */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center; /* Center align text */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px; /* Larger font size */
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px; /* Larger font size */
+}
+
+section {
+  padding: 50px 0;
+  background-color: #fff; /* White background for sections */
+}
+
+section h2 {
+  margin-top: 0;
+  text-align: center; /* Center align headings */
+}
+
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center align items */
+}
+
+.portfolio-item {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust item width for smaller screens */
+  margin: 10px;
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+  transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+.portfolio-item:hover {
+  transform: translateY(-5px); /* Add hover effect */
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  display: block; /* Ensure images fill their containers */
+}
+
+footer {
+  background: linear-gradient(90deg, #ff6f61, #ffcc5c); /* Gradient from orange to yellow */
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed; /* Fixed footer */
+  width: 100%; /* Full width */
+  bottom: 0; /* Stick to the bottom */
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px; /* Smaller font size */
+}
+.profile-photo {
+  max-width: 100px; /* Adjust the size of your photo */
+  border-radius: 50%; /* Make the photo round */
+  margin-right: 20px; /* Add spacing between the photo and text */
+}
+

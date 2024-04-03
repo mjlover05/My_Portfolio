@@ -1,31 +1,35 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "Manish.22";
+$database = "manish";
 
-    // Set your email address where you want to receive messages
-    $to = "manishkumarsingh.3227@gmail.com";
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
 
-    // Subject
-    $subject = "New Message from Portfolio Contact Form";
-
-    // Email content
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n\n";
-    $email_content .= "Message:\n$message\n";
-
-    // Headers
-    $headers = "From: $name <$email>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-
-    // Send email
-    if (mail($to, $subject, $email_content, $headers)) {
-        echo "Your message has been sent successfully!";
-    } else {
-        echo "Sorry, something went wrong. Please try again later.";
-    }
-} else {
-    echo "Access denied.";
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
+
+// Process form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Escape user inputs for security
+    $name = $conn->real_escape_string($_POST['name']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $message = $conn->real_escape_string($_POST['message']);
+
+    // Insert user data into database
+    $sql = "INSERT INTO contacts (name, email, message) VALUES ('$name', '$email', '$message')";
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Close connection
+$conn->close();
 ?>
+
